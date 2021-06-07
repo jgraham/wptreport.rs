@@ -82,6 +82,7 @@ enum TestStatus {
     TIMEOUT,
     CRASH,
     ASSERT,
+    PRECONDITION_FAILED,
     SKIP,
 }
 
@@ -92,6 +93,7 @@ enum SubtestStatus {
     ERROR,
     TIMEOUT,
     ASSERT,
+    PRECONDITION_FAILED,
     NOTRUN,
     SKIP,
 }
