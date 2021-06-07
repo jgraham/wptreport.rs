@@ -24,7 +24,7 @@ struct TestResult {
     expected: Option<TestStatus>,
     known_intermittent: Option<Vec<TestStatus>>,
     message: Option<String>,
-    duration: Option<u64>,
+    duration: Option<i64>,
     asserts: Option<AssertionCount>,
     reftest_screenshots: Option<BTreeMap<String, String>>,
 }
