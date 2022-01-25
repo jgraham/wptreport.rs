@@ -7,7 +7,7 @@ extern crate serde_json;
 extern crate serde_derive;
 
 #[derive(Serialize, Deserialize)]
-struct WptReport {
+pub struct WptReport {
     run_info: serde_json::Value,
     time_start: u64,
     time_end: u64,
@@ -17,7 +17,7 @@ struct WptReport {
 }
 
 #[derive(Serialize, Deserialize)]
-struct TestResult {
+pub struct TestResult {
     test: String,
     subtests: Vec<SubtestResult>,
     status: TestStatus,
@@ -30,7 +30,7 @@ struct TestResult {
 }
 
 #[derive(Serialize, Deserialize)]
-struct SubtestResult {
+pub struct SubtestResult {
     name: String,
     status: SubtestStatus,
     expected: Option<SubtestStatus>,
@@ -39,27 +39,27 @@ struct SubtestResult {
 }
 
 #[derive(Serialize, Deserialize)]
-struct AssertionCount {
+pub struct AssertionCount {
     count: u32,
     min: u32,
     max: u32,
 }
 
 #[derive(Serialize, Deserialize)]
-struct LsanLeak {
+pub struct LsanLeak {
     frames: Vec<String>,
     scope: String,
     allowed_match: Option<String>,
 }
 
 #[derive(Serialize, Deserialize)]
-struct MozLeak {
+pub struct MozLeak {
     objects: Vec<MozLeakObject>,
     total: Vec<MozLeakTotal>,
 }
 
 #[derive(Serialize, Deserialize)]
-struct MozLeakObject {
+pub struct MozLeakObject {
     process: Option<String>,
     name: String,
     allowed: bool,
@@ -67,14 +67,14 @@ struct MozLeakObject {
 }
 
 #[derive(Serialize, Deserialize)]
-struct MozLeakTotal {
+pub struct MozLeakTotal {
     bytes: u64,
     threshold: u64,
     process: Option<String>,
 }
 
 #[derive(Serialize, Deserialize)]
-enum TestStatus {
+pub enum TestStatus {
     PASS,
     FAIL,
     OK,
@@ -82,17 +82,19 @@ enum TestStatus {
     TIMEOUT,
     CRASH,
     ASSERT,
+    #[allow(non_camel_case_types)]
     PRECONDITION_FAILED,
     SKIP,
 }
 
 #[derive(Serialize, Deserialize)]
-enum SubtestStatus {
+pub enum SubtestStatus {
     PASS,
     FAIL,
     ERROR,
     TIMEOUT,
     ASSERT,
+    #[allow(non_camel_case_types)]
     PRECONDITION_FAILED,
     NOTRUN,
     SKIP,
