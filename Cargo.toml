@@ -2,6 +2,8 @@
 name = "wptreport"
 version = "0.1.0"
 authors = ["James Graham <james@hoppipolla.co.uk>"]
+license = "MPL-2.0"
+edition = "2021"
 
 [dependencies]
 serde = "1"
